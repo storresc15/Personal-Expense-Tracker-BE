@@ -7,10 +7,16 @@ const budgetsSchema = new Schema({
     required: true
   },
   description: String,
-  category: { type: Schema.Types.ObjectId, ref: 'Category' },
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  category: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'Category' 
+},
+  user: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'User' 
+},
   startDate: Date,
-  endDate: Date
+        endDate: Date
 });
 
 const Budget = mongoose.model('Budget', budgetsSchema);
