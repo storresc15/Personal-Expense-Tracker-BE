@@ -15,8 +15,8 @@ const budgetsSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'User' 
 },
-  startDate: Date,
-        endDate: Date
+  startDate: Date, 
+            endDate: Date
 });
 
 const Budget = mongoose.model('Budget', budgetsSchema);

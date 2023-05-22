@@ -8,7 +8,7 @@ const categorySchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'User' 
 },
-  type: String  //Not sure on the use of the type of category -- do we have a business process defined for this?
+  type: String    //Not sure on the use of the type of category -- do we have a business process defined for this?
 });
 
 const Category = mongoose.model('Category', categorySchema);
