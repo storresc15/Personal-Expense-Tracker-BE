@@ -45,7 +45,7 @@ app.use(function (req, res, next) {
 });
 
 //Error Handling route
-app.use(errorHandler); // Same note in here
+//app.use(errorHandler); // Same note in here
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
