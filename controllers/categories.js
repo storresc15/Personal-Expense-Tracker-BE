@@ -1,5 +1,5 @@
 const db = require('../models');
-  //expressError = require('../utilities/ExpressError');
+//expressError = require('../utilities/ExpressError');
 
 module.exports.index = (req, res) => {
   res.send('Welcome to the Categories route!!');
@@ -35,11 +35,11 @@ module.exports.postCategory = async (req, res) => {
       if (err) res.send('There was an error in the Category creation!');
     });
     const theCategories = await getCategoriesbyUserId(id);
-    res.send(theCategories); 
+    res.send(theCategories);
   }
 };
 
 const getCategoriesbyUserId = async (id) => {
-    const theCategories = await db.Category.find({user: id}).populate('user');
-    return theCategories;
-}
+  const theCategories = await db.Category.find({ user: id }).populate('user');
+  return theCategories;
+};

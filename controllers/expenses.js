@@ -1,5 +1,5 @@
 const db = require('../models');
-  //expressError = require('../utilities/ExpressError');
+//expressError = require('../utilities/ExpressError');
 
 module.exports.index = (req, res) => {
   res.send('Welcome to the expenses route!!');
@@ -43,6 +43,6 @@ module.exports.postExpense = async (req, res) => {
 };
 
 const getExpensesbyUserId = async (id) => {
-    const theExpenses = await db.Expense.find({user: id}).populate('user');
-    return theExpenses;
-}
+  const theExpenses = await db.Expense.find({ user: id }).populate('user');
+  return theExpenses;
+};
