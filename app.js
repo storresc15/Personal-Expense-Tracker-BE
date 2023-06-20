@@ -1,13 +1,13 @@
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-  }
+  require('dotenv').config();
+}
 
-  const express = require('express'),
+const express = require('express'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
   cookieParser = require('cookie-parser'),
   //passport = require('passport'),
-  //methodOverride = require('method-override'),
+  methodOverride = require('method-override'),
   morgan = require('morgan'),
   path = require('path'),
   db = require('./models'),
@@ -15,10 +15,9 @@ if (process.env.NODE_ENV !== 'production') {
   //expressError = require('./utils/ExpressError'),
   PORT = process.env.PORT || 3001;
 
-  //const userRoutes = require('./routes/users'),
-  const expenseRoutes = require('./routes/expenses'),
+//const userRoutes = require('./routes/users'),
+const expenseRoutes = require('./routes/expenses'),
   incomeRoutes = require('./routes/incomes');
-
 
 const app = express();
 app.use(morgan('tiny'));
@@ -26,16 +25,13 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-
 app.use(cors());
 //app.use(passport.initialize());
 
 //RESTFULL ROUTES
 app.use('/expenses', expenseRoutes);
 app.use('/incomes', incomeRoutes);
-/*app.use('/decks', deckRoutes);
-app.use('/reviews', reviewRoutes);
-app.use('/sets', setRoutes);*/
+
 app.get('/', (req, res) => {
   res.json({ message: 'Hello from server!' });
 });
