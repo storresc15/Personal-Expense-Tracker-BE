@@ -1,5 +1,5 @@
 const db = require('../models');
-  //expressError = require('../utilities/ExpressError');
+//expressError = require('../utilities/ExpressError');
 
 module.exports.index = (req, res) => {
   res.send('Welcome to the incomes route!!');
@@ -37,11 +37,11 @@ module.exports.postIncome = async (req, res) => {
       if (err) res.send('There was an error in the Income creation!');
     });
     const theIncomes = await getIncomesbyUserId(id);
-    res.send(theIncomes); 
+    res.send(theIncomes);
   }
 };
 
 const getIncomesbyUserId = async (id) => {
-    const theIncomes = await db.Income.find({user: id}).populate('user');
-    return theIncomes;
-}
+  const theIncomes = await db.Income.find({ user: id }).populate('user');
+  return theIncomes;
+};
